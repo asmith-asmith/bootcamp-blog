@@ -4,7 +4,6 @@ const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
 const User = require('../models/users');
 
-//passport.use(<instance of strategy>, <verify callback funciton>);
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_SECRET,
