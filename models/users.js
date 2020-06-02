@@ -1,12 +1,13 @@
 var mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-var userSchema = new mongoose.Schema({
+var userSchema = new Schema({
   name: String,
   email: String,
   avatar: String,
   googleId: String,
   lists: [{
-    type: mongoose.Schema.Types.ObjectId,
+    type: Schema.Types.ObjectId,
     ref: 'List'
   }]
 }, {
@@ -14,3 +15,4 @@ var userSchema = new mongoose.Schema({
 });
 
 module.exports = mongoose.model('User', userSchema);
+

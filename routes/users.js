@@ -5,8 +5,8 @@ const usersCtrl = require('../controllers/users');
 const isLoggedIn = require('./modules/isloggedin');
 
 // view all users profile
-router.get('/users/all', usersCtrl.showAll);
+router.get('/', usersCtrl.showAll);
 // view loggedin user
-router.get('/users/:id', usersCtrl.index);
+router.get('/:id', usersCtrl.index);
 
 module.exports = router;

@@ -1,11 +1,12 @@
 <%- include('../partials/header') %>
 
 <% lists.forEach(function(list) { %>
-    <h3><%= list.title%></h3>
-    <p><%= list.content%></p>
-    <span>Posted by <%= list.user.name %></span>
-    <h4>Other <%= list.category%></h4><!-- change to a tag -->
-
+    <div class="blog-post">
+        <h3 class="blog-post-title"><%= list.title%></h3>
+        <p><%= list.content%></p>
+        <p class="blog-post-meta"><%list.createdAt.toLocaleString() %> by <a href="/users/<%list.user._id%>">list.user.name</a></p>
+        <p class="blog-post-meta">View more in<a href="/lists/categories/"><%= list.category%></a></p>
+    </div>
 <% }) %>
 
 <%- include('../partials/footer') %>

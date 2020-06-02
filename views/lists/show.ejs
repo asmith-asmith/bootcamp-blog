@@ -1,12 +1,12 @@
 <%- include('../partials/header') %>
 
 <section id="show-page">
-  <div>Title: </div>
-  <div><%= list.title %></div>
-  <div>Content: </div>
-  <div><p><%= list.content%></p></div>
-  <span>Posted by <%= list.user.name %></span>
-  <h4>Other <%= list.category%> posts</h4><!-- change to a tag -->
+    <div class="blog-post">
+      <h3 class="blog-post-title"><%= list.title%></h3>
+      <p><%= list.content%></p>
+      <p class="blog-post-meta"><%list.createdAt.toLocaleString() %> by <a href="/users/<%list.user._id%>">list.user.name</a></p>
+      <p class="blog-post-meta">View more in<a href="/lists/categories/"><%= list.category%></a></p>
+    </div>
 </section>
   
 <%- include('../partials/footer') %>

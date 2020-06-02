@@ -10,7 +10,7 @@ router.get('/lists/new', listsCtrl.newList);
 // route to create/post new list
 router.post('/lists', listsCtrl.create);
 // route to view particular list
-router.get('lists/:id', listsCtrl.show);
+router.get('/lists/:id', listsCtrl.show);
 
 
 module.exports = router;
