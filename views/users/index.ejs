@@ -2,13 +2,13 @@
 
 <% if (user) { %>
     <div>
-        <img src="<%= user.avatar %>" alt="Google Profile Picture">
+        <img src="<%=user.avatar%>" alt="Google Profile Picture">
     </div>
     <h1>Welcome <%= user.name %></h1>
 <% } else { %>
     <h1>My Lists</h1>
-    <h2>Create Your Lists</h2>
-    <p>Please sign in to continue.</p>
+    <h2>Sign in to Create a List</h2>
+    <a href="/auth/google">Login with Google</a>
 <% } %>
 
 

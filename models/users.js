@@ -5,6 +5,10 @@ var userSchema = new mongoose.Schema({
   email: String,
   avatar: String,
   googleId: String,
+  lists: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'List'
+  }]
 }, {
   timestamps: true
 });

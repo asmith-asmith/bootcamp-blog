@@ -1,0 +1,13 @@
+<%- include('../partials/header') %>
+
+<% lists.forEach(function(list) { %>
+    <span><%= list.user.name %></span>
+    <ul>
+        <li><%= list.category%></li>
+        <% list.list.forEach(function(item) { %>
+          <li><%-item%></li>
+        <% }) %>
+      </ul>
+<% }) %>
+
+<%- include('../partials/footer') %>

@@ -1,7 +1,20 @@
 <%- include('../partials/header') %>
 
-  <h1><%= title %></h1>
-  <p>Welcome to <%= title %></p>
-
+<section id="show-page">
+  <div>Title: </div>
+  <div><%= list.title %></div>
+  <div>Release Year: </div>
+  <div><%= movie.releaseYear %></div>
+  <div>Rating: </div>
+  <div><%= movie.mpaaRating %></div>
+  <div>Now Showing: </div>
+  <div><%= movie.nowShowing ? 'Yes' : 'Nope' %></div>
+  <div>Cast:</div>
+  <ul>
+    <%- movie.cast.map(p => 
+      `<li>${p.name} <small>${p.born.toLocaleDateString()}</small></li>`
+    ).join('') %>
+  </ul>
+</section>
   
-  <%- include('../partials/footer') %>
+<%- include('../partials/footer') %>

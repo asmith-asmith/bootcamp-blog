@@ -1,7 +1,13 @@
 <%- include('../partials/header') %>
-
-  <h1><%= title %></h1>
-  <p>Welcome to <%= title %></p>
-
   
+  <form action="/lists" method="POST">
+    <label>List Title:</label>
+      <input type="text" name="title">
+    <label>Category:</label>
+      <input type="text" name="category">
+    <label>Content:</label>
+      <input type="text" name="content">
+    <input type="submit" value="Add Post">
+  </form>
+
 <%- include('../partials/footer') %>

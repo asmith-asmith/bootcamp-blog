@@ -1,8 +1,8 @@
 var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
-var commentSchema = new mongoose.Schema({
+var commentSchema = new Schema({
     content: String,
-    commentorName: String,
     user: {
         type: Schema.Types.ObjectId,
         ref: 'User',
@@ -13,9 +13,10 @@ var commentSchema = new mongoose.Schema({
 });
 
 
-var listSchema = new mongoose.Schema({
+var listSchema = new Schema({
     title: String,
-    list: [{type: String}],
+    category: String,
+    content: String,
     user: {
         type: Schema.Types.ObjectId,
         ref: 'User',
