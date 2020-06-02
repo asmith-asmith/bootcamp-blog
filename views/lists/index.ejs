@@ -1,13 +1,11 @@
 <%- include('../partials/header') %>
 
 <% lists.forEach(function(list) { %>
-    <span><%= list.user.name %></span>
-    <ul>
-        <li><%= list.category%></li>
-        <% list.list.forEach(function(item) { %>
-          <li><%-item%></li>
-        <% }) %>
-      </ul>
+    <h3><%= list.title%></h3>
+    <p><%= list.content%></p>
+    <span>Posted by <%= list.user.name %></span>
+    <h4>Other <%= list.category%></h4><!-- change to a tag -->
+
 <% }) %>
 
 <%- include('../partials/footer') %>

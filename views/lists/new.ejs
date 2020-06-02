@@ -1,13 +1,22 @@
 <%- include('../partials/header') %>
-  
-  <form action="/lists" method="POST">
-    <label>List Title:</label>
-      <input type="text" name="title">
-    <label>Category:</label>
-      <input type="text" name="category">
-    <label>Content:</label>
-      <input type="text" name="content">
-    <input type="submit" value="Add Post">
-  </form>
+
+<% if (user) { %>
+  <h1>Welcome <%= user.name %></h1>
+  <h2>Create a new post:</h2>
+  <div>
+    <form action="/lists" method="POST">
+      <label>Title:</label>
+        <input type="text" name="title">
+      <label>Category:</label>
+        <input type="text" name="category">
+      <!-- <label>Content:</label> -->
+      <textarea name="content" id="blog-text" cols="60" rows="20"></textarea>
+      <input type="submit" value="Add Post">
+    </form>
+  </div>
+<% } else { %>
+  <h3>Please sign in to create a post</h3>
+  <a href="/auth/google">Login with Google</a>
+<% } %>
 
 <%- include('../partials/footer') %>

@@ -4,9 +4,9 @@ const usersCtrl = require('../controllers/users');
 
 const isLoggedIn = require('./modules/isloggedin');
 
-// view loggedin user
-router.get('/', usersCtrl.index);
 // view all users profile
-router.get('/all', usersCtrl.showAll)
+router.get('/users/all', usersCtrl.showAll);
+// view loggedin user
+router.get('/users/:id', usersCtrl.index);
 
 module.exports = router;

@@ -1,4 +1,5 @@
 const List = require('../models/lists');
+const User = require('../models/users');
 
 
 module.exports = {
@@ -24,7 +25,7 @@ function newList(req, res){
 
 function create(req, res){
     const list = new List(req.body);
-    list.user = req.user.id;
+    list.user = user._id;
     list.save(function(err) {
         if (err) return render('/lists/new');
         User.find({_id: req.user.id}, function(err, user){

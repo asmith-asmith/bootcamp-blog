@@ -3,18 +3,10 @@
 <section id="show-page">
   <div>Title: </div>
   <div><%= list.title %></div>
-  <div>Release Year: </div>
-  <div><%= movie.releaseYear %></div>
-  <div>Rating: </div>
-  <div><%= movie.mpaaRating %></div>
-  <div>Now Showing: </div>
-  <div><%= movie.nowShowing ? 'Yes' : 'Nope' %></div>
-  <div>Cast:</div>
-  <ul>
-    <%- movie.cast.map(p => 
-      `<li>${p.name} <small>${p.born.toLocaleDateString()}</small></li>`
-    ).join('') %>
-  </ul>
+  <div>Content: </div>
+  <div><p><%= list.content%></p></div>
+  <span>Posted by <%= list.user.name %></span>
+  <h4>Other <%= list.category%> posts</h4><!-- change to a tag -->
 </section>
   
 <%- include('../partials/footer') %>

@@ -4,6 +4,11 @@ a {
 body {
   margin: 0;
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px "Times New Roman", Times, serif;
   height: 100vh;
+}
+.blog-header-logo{
+  color: black;
+  font-size: x-large;
+  font-family: "Times New Roman", Times, serif;
 }

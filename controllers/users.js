@@ -1,10 +1,10 @@
 const User = require('../models/users');
 
-
 module.exports = {
     index,
     showAll
 };
+
 function index(req, res) {
   User.find({user: req.user}, function (err, user) {
     if (err) return next(err);

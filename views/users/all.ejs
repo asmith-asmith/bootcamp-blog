@@ -1,3 +1,11 @@
 <%- include('../partials/header') %>
 
+<% if (user) { %>
+    <div>
+        <img src="<%=user.avatar%>" alt="Google Profile Picture">
+    </div>
+    <h1>Welcome <%= user.name %></h1>
+<% } %>
+
+
 <%- include('../partials/footer') %>
