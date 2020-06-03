@@ -6,7 +6,9 @@ module.exports = {
     index,
     newList,
     create,
-    show
+    show,
+    deleteList,
+    createComment
 };
 
 function index(req, res){
@@ -46,3 +48,31 @@ function show(req, res){
         });
     });
 };
+
+function deleteList(req, res){
+    List.deleteOne({_id: req.params.id}, function(err, list){
+        if (err) return res.status(500).send(err);
+        console.log(list.user, "thi is before User")
+        User.findById(list.user, function(err, user){
+            console.log(user)
+            console.log(user.lists)
+            user.lists.array.forEach(element,idx => {
+                if(element === list._id) user.list.splice(idx,1);
+            });
+            user.save(function(err){
+                res.redirect(`/lists`);
+            });
+        });
+    });
+}
+
+function createComment(req, res){
+    List.findById(req.params.id, function(err, list) {
+        req.body.useId = req.user._id;
+        req.body.userName = req.user.name;
+        list.comments.push(req.body);
+        list.save(function(err) {
+          res.redirect(`/lists/${list._id}`);
+        });
+    });
+}

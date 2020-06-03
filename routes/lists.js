@@ -11,6 +11,10 @@ router.get('/lists/new', listsCtrl.newList);
 router.post('/lists', listsCtrl.create);
 // route to view particular list
 router.get('/lists/:id', listsCtrl.show);
+// route to delete
+router.delete('/lists/:id', listsCtrl.deleteList)
+// router to create a comment
+router.post('/lists/:id/comments', listsCtrl.create);
 
 
 module.exports = router;
