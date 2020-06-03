@@ -50,8 +50,10 @@ function show(req, res){
 };
 
 function deleteList(req, res){
+    
     List.deleteOne({_id: req.params.id}, function(err, list){
         if (err) return res.status(500).send(err);
+
         console.log(list.user, "thi is before User")
         User.findById(list.user, function(err, user){
             console.log(user)
