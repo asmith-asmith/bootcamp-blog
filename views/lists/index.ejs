@@ -4,7 +4,7 @@
     <div class="blog-post">
         <h3 class="blog-post-title"><a href="/lists/<%=list._id%>"><%= list.title%></a></h3>
         <p><%= list.content%></p>
-        <p class="blog-post-meta"><%= list.createdAt.toLocaleString() %> by <%=list.user.name%><a href="/users/<%list.user._id%>"> <%=list.user.name%> </a></p>
+        <p class="blog-post-meta"><%= list.createdAt.toLocaleString() %> by <a href="/users/<%=list.user._id%>"> <%=list.user.name%></a></p>
         <p class="blog-post-meta">View more in <a href="/lists/categories/"><%= list.category%></a></p>
     </div>
 <% }) %>

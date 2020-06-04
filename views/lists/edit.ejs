@@ -1,0 +1,19 @@
+<%- include('../partials/header') %>
+
+
+<h1>Welcome <%= user.name %></h1>
+<h2>Edit your post:</h2>
+<div>
+  <form action="/lists/<%=list._id%>?_method=PUT" method="POST">
+    <label>Title:</label>
+      <input type="text" value=<%=list.title%> name="title">
+    <label>Category:</label>
+      <input type="text" value=<%=list.category%> name="category">
+    <!-- <label>Content:</label> -->
+    <textarea name="content" value=<%=list.content%> id="blog-text" cols="60" rows="20"></textarea>
+    <input type="submit" value="Add Post">
+  </form>
+</div>
+
+
+<%- include('../partials/footer') %></input>

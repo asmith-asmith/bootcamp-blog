@@ -4,12 +4,17 @@
     <div class="blog-post">
       <h3 class="blog-post-title"><%= list.title%></h3>
       <p><%= list.content%></p>
-      <p class="blog-post-meta"><%list.createdAt.toLocaleString() %> by <a href="/users/<%list.user._id%>">list.user.name</a></p>
-      <p class="blog-post-meta">View more in<a href="/lists/categories/"><%= list.category%></a></p>
+      <p class="blog-post-meta"><%= list.createdAt.toLocaleString() %> by <a href="/users/<%list.user._id%>"><%=list.user.name%></a></p>
+      <p class="blog-post-meta">View more in <a href="/lists/categories/"><%= list.category%></a></p>
       <% if (list.user._id.equals(user && user._id)) { %>
       <form action="/lists/<%= list._id%>?_method=DELETE"class="delete-form" method="POST">
         <button type="submit">Delete</button>
       </form>
+      <% } %>
+      <% if (list.user._id.equals(user && user._id)) { %>
+        <form action="/lists/<%= list._id %>/edit" method="GET">
+          <button type="submit">Edit</button>
+        </form>
       <% } %>
     </div>
     <% if (user) { %>
