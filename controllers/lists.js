@@ -43,9 +43,7 @@ function create(req, res){
 
 
 function show(req, res){
-    List.findOne({_id: req.params.id}).populate('user').exec(function(err, list){
-        console.log(list, "this is the list in show")
-        console.log(list.comments, "this is lisst.commetns in show")
+    List.findOne({_id: req.params.id}).populate('user comments.user').exec(function(err, list){
         res.render('lists/show',{
             list,
             title: list.title,
@@ -79,18 +77,21 @@ function createComment(req, res){
 }
 
 function edit(req, res) {
-    List.findById(req.params.id, function(err, list) {
-      if (!list.user.equals(req.user._id)) return res.redirect('/lists');
-      res.render('/lists/edit', {list});
+    List.findOne({_id: req.params.id}, function(err, list) {
+        if (!list.user.equals(req.user._id)) return res.redirect('/lists');
+        res.render('lists/edit',{
+            list,
+            title: list.title,
+        });
     });
 }
 
 function update(req, res){
-    List.findByIdAndUpdate(req.params.id, function(err, list){
-        list.title = req.body.title;
-        list.category = req.body.category;
-        list.content = req.body.content;
+    console.log("indide of update")
+    console.log(req)
+    List.findByIdAndUpdate(req.params.id, req.body, function(err, list){
         list.save(function(err){
+            console.log("inside list save in iupdate")
             res.redirect(`/lists/${list._id}`)
         })
     })

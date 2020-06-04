@@ -30,5 +30,10 @@ router.get('/logout', function(req, res){
   req.logout();
   res.redirect('/lists');
 });
+router.get('/home', function(req,res){
+  res.render('index', {
+    title: "Home"
+  })
+})
 
 module.exports = router;

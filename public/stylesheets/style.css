@@ -7,8 +7,16 @@ body {
   font: 14px "Times New Roman", Times, serif;
   height: 100vh;
 }
+/* .blog-post{
+  background-color: whitesmoke;
+  border: 1px solid black;
+} */
 .blog-header-logo{
   color: black;
   font-size: x-large;
   font-family: "Times New Roman", Times, serif;
+}
+.blog-sidebar{
+  background-color: whitesmoke;
+  border: 1px solid lightgrey;
 }

@@ -10,8 +10,8 @@
     <label>Category:</label>
       <input type="text" value=<%=list.category%> name="category">
     <!-- <label>Content:</label> -->
-    <textarea name="content" value=<%=list.content%> id="blog-text" cols="60" rows="20"></textarea>
-    <input type="submit" value="Add Post">
+    <textarea name="content" id="blog-text" cols="60" rows="20"><%= list.content %></textarea>
+    <input type="submit" value="Save Edit">
   </form>
 </div>
 

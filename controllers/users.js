@@ -6,16 +6,12 @@ module.exports = {
 };
 
 function index(req, res) {
-  User.find({user: req.user}, function (err, user) {
-    if (err) return next(err);
-
+  User.findById(req.params.id).populate('lists'), function(err, user){
     res.render("users/index", {
       title: 'Logged in User',
-      user,
-      user: req.user,
-      name: req.query.name
+      user
     });
-  });
+  };
 }
 
 

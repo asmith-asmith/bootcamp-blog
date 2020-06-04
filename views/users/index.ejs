@@ -1,10 +1,23 @@
 <%- include('../partials/header') %>
 
 <% if (user) { %>
+    <h1><%= user.name %>'s Profile:</h1>
     <div>
-        <img src="<%=user.avatar%>" alt="Google Profile Picture">
+        <% user.lists.forEach(element => { %>
+            <div class="blog-post">
+                <h3 class="blog-post-title"><a href="/lists/<%=list._id%>"><%= list.title%></a></h3>
+                <p><pre><%= list.content%></pre></p>
+                <p class="blog-post-meta"><%= list.createdAt.toLocaleString() %> by <a href="/users/<%=list.user._id%>"> <%=list.user.name%></a></p>
+                <p class="blog-post-meta">View more in <a href="/lists/categories/"><%= list.category%></a></p>
+            </div>
+            <hr>
+        <% });  %> 
     </div>
-    <h1>Welcome <%= user.name %></h1>
+<% } else { %>
+    <div>
+        <p>Login to view your profile</p>
+    </div>
 <% } %>
+
 
 <%- include('../partials/footer') %>

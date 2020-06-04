@@ -3,7 +3,7 @@
 <section id="show-page">
     <div class="blog-post">
       <h3 class="blog-post-title"><%= list.title%></h3>
-      <p><%= list.content%></p>
+      <p><pre><%= list.content%></pre></p>
       <p class="blog-post-meta"><%= list.createdAt.toLocaleString() %> by <a href="/users/<%list.user._id%>"><%=list.user.name%></a></p>
       <p class="blog-post-meta">View more in <a href="/lists/categories/"><%= list.category%></a></p>
       <% if (list.user._id.equals(user && user._id)) { %>
@@ -25,16 +25,18 @@
       </form>
     </div>
     <% } %>
+    <hr>
+    <h5>Comments:</h5>
+    <div class="collection">
     <% if (list.comments) { %>
-      <div>
-        <ul class="collection">
-          <% list.comments.forEach(function(comment) { %>
-            <li class="collection-item blue-grey-text text-darken-2"><%= comment.content %></li>
-          <% }) %>
-        </ul>
+        <% list.comments.forEach(function(comment) { %>
+          <blockquote>
+            <p class="collection-item blue-grey-text text-darken-2"><pre><%= comment.content %></pre></p>
+            <p><%= comment.user.createdAt.toLocaleString() %> by <%= comment.user.name %></p>
+          </blockquote>
+        <% }) %>
       </div>
     <% } else { %>
-      <div>
         <p>No Comments Yet</p>
       </div>
     <% } %>
