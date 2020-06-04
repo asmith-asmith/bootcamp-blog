@@ -6,16 +6,34 @@
       <p><%= list.content%></p>
       <p class="blog-post-meta"><%list.createdAt.toLocaleString() %> by <a href="/users/<%list.user._id%>">list.user.name</a></p>
       <p class="blog-post-meta">View more in<a href="/lists/categories/"><%= list.category%></a></p>
+      <% if (list.user._id.equals(user && user._id)) { %>
       <form action="/lists/<%= list._id%>?_method=DELETE"class="delete-form" method="POST">
         <button type="submit">Delete</button>
       </form>
+      <% } %>
     </div>
+    <% if (user) { %>
     <div>
-      <form action="/list/<%= list._id %>/comments" method="POST">
+      <form action="/lists/<%= list._id %>/comments" method="POST">
         <input name="content">
         <button type="submit">ADD COMMENT</button>
       </form>
     </div>
+    <% } %>
+    <% if (list.comments) { %>
+      <div>
+        <ul class="collection">
+          <% list.comments.forEach(function(comment) { %>
+            <li class="collection-item blue-grey-text text-darken-2"><%= comment.content %></li>
+          <% }) %>
+        </ul>
+      </div>
+    <% } else { %>
+      <div>
+        <p>No Comments Yet</p>
+      </div>
+    <% } %>
+
 </section>
   
 <%- include('../partials/footer') %>
