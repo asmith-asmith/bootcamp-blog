@@ -8,7 +8,11 @@
 <% } %>
 <div>
     <h3>Browse by User:</h3>
-    <%  %> user.forEach()
+    <% allUsers.forEach(function(thisUser){ %>
+        <ol>
+            <li><a href="users/<%=thisUser._id%>"><%=thisUser.name%></a></li>
+        </ol>
+    }) %>
 </div>
 
 <%- include('../partials/footer') %>

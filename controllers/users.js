@@ -25,12 +25,11 @@ function showAll(req, res) {
   let sortKey = req.query.sort || "name";
   User.find(modelQuery)
     .sort(sortKey)
-    .exec(function (err, users) {
+    .exec(function (err, allUsers) {
       if (err) return next(err);
-
-      res.render("users/all", {
+      res.render('users/all', {
         title: 'All Users',
-        users,
+        allUsers,
         user: req.user,
         name: req.query.name,
         sortKey,

@@ -45,6 +45,7 @@ function create(req, res){
 
 function show(req, res){
     List.findOne({_id: req.params.id}).populate('user comments.user').exec(function(err, list){
+        console.log(list.user._id)
         res.render('lists/show',{
             list,
             title: list.title,
