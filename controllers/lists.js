@@ -27,6 +27,7 @@ function newList(req, res){
     res.render('lists/new', {title: 'New Post'});
 };
 
+
 function create(req, res){
     const list = new List(req.body);
     list.user = req.user;

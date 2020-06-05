@@ -13,6 +13,8 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var listsRouter = require('./routes/lists');
 
+const List = require('./models/lists');
+
 var app = express();
 
 require('./config/database');
@@ -40,6 +42,13 @@ app.use(passport.session());
 app.use(function (req, res, next) {
   res.locals.user = req.user;
   next();
+});
+
+app.use(function (req, res, next) {
+  List.find({}, function(err, allLists){
+    res.locals.allLists = allLists;
+  next();
+  })
 });
 
 app.use('/', indexRouter);

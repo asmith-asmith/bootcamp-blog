@@ -9,10 +9,9 @@
                 <div class="p-4">
                     <h4 class="font-italic">Popular Blogs</h4>
                     <ol class="list-unstyled mb-0">
-                    <li><a href="#">HTML - 101</a></li>
-                    <li><a href="#">CSS Sucks</a></li>
-                    <li><a href="#">My Code Challenge Challenges</a></li>
-                    <li><a href="#">Should I Quit</a></li>
+                    <%allLists.forEach(function(list){%>
+                        <li><a href="/lists/<%=list._id%>"><%=list.title%></a></li>
+                    <% }) %>
                     </ol>
                 </div>
                 <div class="p-4">
