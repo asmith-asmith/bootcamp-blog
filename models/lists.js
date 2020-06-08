@@ -15,7 +15,10 @@ var commentSchema = new Schema({
 
 var listSchema = new Schema({
     title: String,
-    category: String,
+    category: {
+        type: String,
+        default: "General"
+    },
     content: String,
     user: {
         type: Schema.Types.ObjectId,

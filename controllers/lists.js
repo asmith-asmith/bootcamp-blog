@@ -10,11 +10,12 @@ module.exports = {
     deleteList,
     createComment,
     edit,
-    update
+    update,
+    viewByCategory
 };
 
 function index(req, res){
-    List.find({}).populate('user') .exec(function(err, lists){
+    List.find({}).populate('user').sort('-createdAt').exec(function(err, lists){
         if(err) return next(err);
         res.render('lists/index', {
             lists,
@@ -89,12 +90,19 @@ function edit(req, res) {
 }
 
 function update(req, res){
-    console.log("indide of update")
-    console.log(req)
     List.findByIdAndUpdate(req.params.id, req.body, function(err, list){
         list.save(function(err){
             console.log("inside list save in iupdate")
             res.redirect(`/lists/${list._id}`)
+        })
+    })
+}
+
+function viewByCategory(req, res){
+    List.find({category: req.params.cat}, function(err, lists){
+        res.render('lists/category', {
+            lists,
+            title: req.params.cat
         })
     })
 }

@@ -19,7 +19,6 @@ function index(req, res) {
 
 
 function showAll(req, res) {
-
   console.log(req.query);
   let modelQuery = req.query.name? {name: new RegExp(req.query.name, "i"),}: {};
   let sortKey = req.query.sort || "name";

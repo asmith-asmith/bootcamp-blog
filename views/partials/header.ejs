@@ -12,43 +12,55 @@
 </head>
 <body>
   <div class="container">
+
     <header class="blog-header py-3">
-      <div class="row flex-nowrap justify-content-between align-items-center">
-        <div class="col-4 text-center">
-          <a class="blog-header-logo text-dark" href="/home">LAB</a>
-        </div>
-      </div>
-    </header>
-    <hr>
-    <div class="nav-scroller py-1 mb-2">
-      <nav class="navbar navbar-default">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <a class="navbar-brand" href="/lists"><img src="/images/logo.png" width="30" height="30" alt="Logo" class="logoimg"/></a>
+        <div class="row flex-nowrap justify-content-between align-items-center">
+          <div class="col-4 pt-1">  
+            <% if (user) { %>
+              <a class="text-muted" href="/users/<%=user._id%>">Profile</a>
+            <% } else { %>
+              <a class="text-muted" href="/users/all">Users</a>
+            <% } %>
+            <% if (user) { %>
+              <a class="btn btn-sm btn-outline-secondary" href="/logout">Log Out</a>
+            <% } else { %>
+              <a class="btn btn-sm btn-outline-secondary" href="/auth/google">Login with Google</a>
+            <% } %>
           </div>
+          <div class="col-4 text-center">
+            <a class="blog-header-logo text-dark" href="/lists"><img src="/images/logo.png" width="30" height="30" alt="Logo" class="logoimg"/></a>
+          </div>
+        </div>
+        <br>
+    </header>
+   
+
+    <div class="nav-scroller py-1 mb-2">
+      <nav class="nav d-flex justify-content-between">
+        <!-- class="navbar navbar-default" -->
+        <div class="container-fluid">
           <ul class="nav navbar-nav">
-                <li><a class="navBar" href="/home">Home</a></li>
-                <li class="divLine">|</li>
-                <% if (user) { %>
-                  <li><a class="navBar" href="/users/<%=user._id%>">Profile</a></li>
-                <% } else { %>
-                  <li><a class="navBar" href="/users/all">Users</a></li>
-                <% } %>
-                <li class="divLine">|</li>
-                <li><a class="navBar" href="/lists/new">Create Post</a></li>
-                <li class="divLine">|</li>
-                <li>
-                  <% if (user) { %>
-                      <a href="/logout">Log Out</a>
-                  <% } else { %>
-                      <a href="/auth/google">Login with Google</a>
-                  <% } %>
-                </li>
+            <li><a class="text-muted" href="/home">Home</a></li>
+            <li><a class="text-muted" href="/lists/new">+</a></li>
+            <li><a class="navBar" href="/lists/categories/General">General</a></li>
+            <li><a class="navBar" href="/lists/categories/HTML">HTML</a></li>
+            <li><a class="navBar" href="/lists/categories/CSS">CSS</a></li>
+            <li><a class="navBar" href="/lists/categories/Javascript">JavaScript</a></li>
+            <li><a class="navBar" href="/lists/categories/Node.js">Node.js</a></li>
+            <li><a class="navBar" href="/lists/categories/Express">Express</a></li>
+            <li><a class="navBar" href="/lists/categories/MongoDB">MongoDB</a></li>
+            <li><a class="navBar" href="/lists/categories/Mongoose">Mongoose</a></li>
+            <li><a class="navBar" href="/lists/categories/ComputerScience">Computer Science</a></li>
+            <li><a class="navBar" href="/lists/categories/MentalHealth">Mental Health</a></li>
+            <li><a class="navBar" href="/lists/categories/Hardware">Hardware</a></li>
           </ul>
         </div>
       </nav>
     </div>
+<br>
+<hr>
   </div>
+
   <main role="main" class="container">
     <div class="row">
       <div class="col-md-8 blog-main">

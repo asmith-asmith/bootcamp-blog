@@ -18,6 +18,8 @@ router.post('/lists/:id/comments', isLoggedIn, listsCtrl.createComment);
 router.get('/lists/:id/edit', isLoggedIn, listsCtrl.edit);
 //route to save edit
 router.put('/lists/:id', isLoggedIn, listsCtrl.update)
+// route to a category
+router.get('/lists/categories/:cat', listsCtrl.viewByCategory)
 
 
 
