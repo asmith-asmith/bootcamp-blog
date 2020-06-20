@@ -22,7 +22,7 @@ Bootcamps can be tough, and they definitely move quicly. LAB is a place to post 
 ## Getting Started
 
 Here's the deployed app:
-[Click here](https://boocamp-experience.herokuapp.com/) 
+[Click here](https://bootcamp-experience.herokuapp.com/) 
 Here's the trello board:
 [Click here](https://boocamp-blog.herokuapp.com/) 
 
