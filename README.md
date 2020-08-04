@@ -18,6 +18,7 @@ Bootcamps can be tough, and they definitely move quicly. LAB is a place to post 
 - EJS
 - CSS
 - Heroku
+- Passport
 
 ## Getting Started
 

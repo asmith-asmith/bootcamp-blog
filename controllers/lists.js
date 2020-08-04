@@ -99,7 +99,7 @@ function update(req, res){
 }
 
 function viewByCategory(req, res){
-    List.find({category: req.params.cat}, function(err, lists){
+    List.find({category: req.params.cat}).populate('user').exec(function(err, lists){
         res.render('lists/category', {
             lists,
             title: req.params.cat

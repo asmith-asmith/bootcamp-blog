@@ -7,7 +7,7 @@ module.exports = {
 
 function index(req, res) {
   console.log("inside index")
-  User.findById(req.params.id).populate('lists').exec( function(err, user){
+  User.findById(req.params.id).populate('lists user').exec(function(err, user){
     console.log("inside User . find")
     if(err) console.log(err)
     res.render('users/index', {
@@ -23,7 +23,7 @@ function showAll(req, res) {
   let modelQuery = req.query.name? {name: new RegExp(req.query.name, "i"),}: {};
   let sortKey = req.query.sort || "name";
   User.find(modelQuery)
-    .sort(sortKey)
+    .sort(sortKey).populate('user')
     .exec(function (err, allUsers) {
       if (err) return next(err);
       res.render('users/all', {
